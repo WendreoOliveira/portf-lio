@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <div class="desfocar"></div>
+
+
     <nav class="navegacao">
         <ul class="menu">
             <li>
@@ -38,20 +41,32 @@
         <div class="sobre-caixa">
             <p class="sobre-paragrafro">
                 Bem-vindo(a) ao meu Portfólio. Sou Wendreo Oliveira, estudante de tecnologia em constante evolução.<br>
-                Atualmente, estou focado em meu desenvolvimento profissional nas áreas de tecnologia e programação.<br>
-                Como estudante de programação e desenvolvimento nas plataformas Udemy, DIO e Descomplica.<br>
-                <br>    
-                Busco sempre melhorar minha construção de códigos limpos e claros,  priorizando as boas praticas  de programação, sempre buscando  melhoras de performance e usabilidade das aplicações.<br>
-                Pensando nisto comecei uma Pós-graduação em engenharia de Software assim aprimorando ainda mais meus conhecimentos e adquirindo ainda mais experiência com ferramentas poderosas.<br>
+                Atualmente estou focado em meu desenvolvimento profissional na área de programação.<br>
+                Como estudante de programação estou me desenvolvendo e aprimorando meus conhecimentos pela plataformas
+                Udemy, DIO e Descomplica.<br>
+                <br>
+                Busco sempre melhorar minha construção de códigos limpos e claros, priorizando as boas praticas de
+                programação, sempre buscando melhoras de performance e usabilidade das aplicações.<br>
+                Pensando nisto comecei uma Pós-graduação em engenharia de Software assim aprimorando ainda mais meus
+                conhecimentos e adquirindo ainda mais experiência com ferramentas poderosas.<br>
                 <br>
                 Formação em engenharia da computação com matérias para desenvolvimento de software e eletrônica, com
                 experiência como Analista Programador Jr. <br>
-                Durante minha trajetória, desenvolvi habilidades como resolução de problemas, criação de códigos e
-                lógicas de programação, boas praticas de um código, realizar query desejável em banco de dados SQL, <br>
-                automotização de processos, trabalho em equipe, comunicação.
+                Durante minha experiência profissional, desenvolvi habilidades como : <br>
+                <br>
+                - resolução de problemas<br>
+                - criação de códigos<br>
+                - lógicas de programação<br>
+                - boas praticas de um código<br>
+                - realizar query desejável em banco de dados SQL<br>
+                - automotização de processos<br>
+                - trabalho em equipe<br>
+                - comunicação.
                 <br>
                 <br>
-                Estou em busca de oportunidade como desenvolvedor, tenho conhecimentos em C#, Java, Javascript, Typescript, Node.js, React, HTML, CSS, Delphi e SQL Developer. Sou uma pessoa reservada mas muito amigável e proativo, dedicado e curioso para aprender tudo sobre tecnologia.
+                Estou em busca de oportunidade como desenvolvedor, tenho conhecimentos em C#, Java, Javascript,
+                Typescript, Node.js, React, HTML, CSS, Delphi e SQL Developer. Sou uma pessoa reservada mas muito
+                amigável e proativo, dedicado e curioso para aprender tudo sobre tecnologia.
             </p>
         </div>
     </section>
@@ -64,7 +79,8 @@
                 <img src="./img/projeto-jogos.jpg" alt="projeto 1" class="projetos-imagem">
                 <div class="caixa-textos-projeto">
                     <h3 class="info-projetos">Listar jogos e separá-los por modalidade.</h3>
-                    <p class="paragrafo-projetos"> Projeto com Java Spring no back-end para listar jogos e separá-lospor modalidade.</p>
+                    <p class="paragrafo-projetos"> Projeto com Java Spring no back-end para listar jogos e separá-lospor
+                        modalidade.</p>
                 </div>
             </div>
             <!--Fim do primeiro projeto-->
@@ -83,18 +99,36 @@
 
     <section id="contatos" class="contatos">
         <h2 class="contatos-titulo">Entre em contato</h2>
-        <form class="formulario-contato" id="formulario">
+        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
             <div class="grupo-form">
-                <input placeholder="Nome" class="campo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
             </div>
 
             <div class="grupo-form">
-                <textarea class="campo-form" placeholder="Digite sua mensagem"></textarea>
+                <textarea class="campo-form" placeholder="Digite sua mensagem" rows="10" id="mensagem"></textarea>
             </div>
 
             <button type="submit" class="botao-form">Enviar WhatsApp</button>
         </form>
     </section>
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault()
+
+            const nome = document.getElementById("nome").value;
+            const mensagem = document.getElementById("mensagem").value;
+            const telefone = '5514991325222'
+
+            const text = `Olá! Me chamo ${nome}, ${mensagem}`
+            const msgFormatada = encodeURIComponent(text)
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+            window.open(url, '_blank')
+        }
+
+    </script>
 </body>
 
 </html>
